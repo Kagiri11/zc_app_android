@@ -1,6 +1,5 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8F8F8">
@@ -30,24 +29,24 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@android:color/transparent"
+                    android:contentDescription="Todo"
                     android:src="@drawable/ic_back"
-                    app:tint="@android:color/white"
-                    android:contentDescription="Todo" />
+                    app:tint="@android:color/white" />
 
                 <LinearLayout
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:gravity="center"
+                    android:layout_margin="10dp"
                     android:background="@drawable/img_background"
-                    android:layout_margin="10dp">
+                    android:gravity="center">
 
                     <ImageView
                         android:id="@+id/group_image_display"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/people"
-                        android:contentDescription="Todo" />
+                        android:contentDescription="Todo"
+                        android:src="@drawable/people" />
 
                 </LinearLayout>
 
@@ -74,9 +73,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="12sp"
                             android:text="Lux, Hammid, joe, 234701..."
-                            android:textColor="@color/white" />
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
 
 
                     </LinearLayout>
@@ -91,9 +90,9 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="50dp"
                     android:background="@android:color/transparent"
+                    android:contentDescription="Todo"
                     android:src="@drawable/ic_add_call"
-                    app:tint="@android:color/white"
-                    android:contentDescription="Todo" />
+                    app:tint="@android:color/white" />
 
                 <ImageButton
                     android:id="@+id/option_btn"
@@ -102,9 +101,9 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="20dp"
                     android:background="@android:color/transparent"
+                    android:contentDescription="Todo"
                     android:src="@drawable/ic_option"
-                    app:tint="@android:color/white"
-                    android:contentDescription="Todo" />
+                    app:tint="@android:color/white" />
 
 
             </LinearLayout>
@@ -160,9 +159,9 @@
                     android:layout_height="25dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="5dp"
+                    android:contentDescription="Todo"
                     android:src="@drawable/ic_smile"
-                    app:tint="#737373"
-                    android:contentDescription="Todo" />
+                    app:tint="#737373" />
 
                 <EditText
                     android:id="@+id/message_edit"
@@ -172,8 +171,8 @@
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:hint="@string/type_a_message"
-                    android:padding="10dp"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:padding="10dp" />
 
                 <ImageView
                     android:id="@+id/link_btn"
@@ -181,18 +180,18 @@
                     android:layout_height="25dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="15dp"
+                    android:contentDescription="Todo"
                     android:src="@drawable/link"
-                    app:tint="#737373"
-                    android:contentDescription="Todo" />
+                    app:tint="#737373" />
 
                 <ImageView
                     android:id="@+id/camera_btn"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_gravity="center_vertical"
+                    android:contentDescription="Todo"
                     android:src="@drawable/ic_camera"
-                    app:tint="#737373"
-                    android:contentDescription="Todo" />
+                    app:tint="#737373" />
 
             </LinearLayout>
 
@@ -203,20 +202,194 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:src="@drawable/ic_voice"
-            android:contentDescription="Todo" />
+            android:contentDescription="Todo"
+            android:src="@drawable/ic_voice" />
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/group_recycler"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="0dp"
         android:layout_margin="6dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/intro_group_text" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/attachment_panel"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:cardElevation="5dp"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--region Gallery-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/gallery_layout"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toStartOf="@+id/audio_layout"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/gallery_card"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@color/file_picker_color"
+                    app:cardCornerRadius="25dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_gallery"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_photo" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/tv_gallery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/lato"
+                    android:text="Gallery"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/gallery_card"
+                    app:layout_constraintStart_toStartOf="@id/gallery_card"
+                    app:layout_constraintTop_toBottomOf="@+id/gallery_card" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--endregion-->
+            <!--region Audio-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/audio_layout"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+
+                app:layout_constraintEnd_toStartOf="@+id/document_layout"
+
+                app:layout_constraintStart_toEndOf="@+id/gallery_layout">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/audio_card"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@color/file_picker_color"
+                    app:cardCornerRadius="25dp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_headset" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/lato"
+                    android:text="Audio"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/audio_card"
+                    app:layout_constraintStart_toStartOf="@id/audio_card"
+                    app:layout_constraintTop_toBottomOf="@+id/audio_card" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--endregion-->
+            <!--region Document-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/document_layout"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+
+                app:layout_constraintEnd_toStartOf="@+id/gif_layout"
+                app:layout_constraintStart_toEndOf="@+id/audio_layout">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/document_card"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@color/file_picker_color"
+                    app:cardCornerRadius="25dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_document"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_article" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/tv_document"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/lato"
+                    android:text="Document"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/document_card"
+                    app:layout_constraintStart_toStartOf="@id/document_card"
+                    app:layout_constraintTop_toBottomOf="@+id/document_card" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--endregion-->
+            <!--region GIF-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/gif_layout"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/document_layout">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/gif_card"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@color/file_picker_color"
+                    app:cardCornerRadius="25dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_gif"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_gif" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/tv_gif"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/lato"
+                    android:text="GIFs"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/gif_card"
+                    app:layout_constraintStart_toStartOf="@id/gif_card"
+                    app:layout_constraintTop_toBottomOf="@+id/gif_card" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--endregion-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
